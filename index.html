@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:," />
+    <title>TouchDesigner WebSocket</title>
+  </head>
+  <body>
+    <a href="" id="status" style="height: 10px; width: 10px"></a>
+    <form id="td-form">
+      <div class="form-group">
+        <label for="osc-word">Word:</label>
+        <input type="text" id="osc-word" value="hello" required />
+      </div>
+      <button type="submit" id="send-btn" disabled>Send Data</button>
+    </form>
+  </body>
+  <script>
+    const ws = new WebSocket(`ws://${window.location.hostname}:3000`);
+
+    const statusEl = document.getElementById("status");
+    const sendBtn = document.getElementById("send-btn");
+    const form = document.getElementById("td-form");
+
+    ws.onopen = () => {
+      statusEl.textContent = "Connected";
+      statusEl.style.color = "green";
+      sendBtn.disabled = false;
+    };
+
+    ws.onclose = () => {
+      statusEl.textContent = "Connection failed";
+      statusEl.style.color = "red";
+      sendBtn.disabled = true;
+    };
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const word = document.getElementById("osc-word").value.trim();
+
+      if (ws.readyState === WebSocket.OPEN) {
+        ws.send(word);
+        console.log("Verzonden:", word);
+      }
+    });
+  </script>
+</html>

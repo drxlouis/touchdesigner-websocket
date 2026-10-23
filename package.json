@@ -1,0 +1,16 @@
+{
+  "name": "touchdesigner-websocket",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "osc": "^2.4.5",
+    "osc-min": "^2.1.2"
+  }
+}
