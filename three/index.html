@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Voeg woorden toe aan je eigen glas-in-loodraam." />
+    <meta name="theme-color" content="#08090b" />
+    <title>Woordatelier | Glas-in-lood</title>
+  </head>
+  <body>
+    <main id="app" class="composer-page">
+      <section class="word-panel" aria-labelledby="word-panel-title">
+        <div class="word-panel-heading">
+          <p class="eyebrow">GLAS-IN-LOOD</p>
+          <h1 id="word-panel-title">Jouw woorden in glas</h1>
+        </div>
+        <form id="word-form" class="word-form">
+          <label class="sr-only" for="word-input">Voeg een woord toe</label>
+          <input
+            id="word-input"
+            name="word"
+            type="text"
+            maxlength="24"
+            placeholder="Typ een woord..."
+            autocomplete="off"
+            required
+          />
+          <button type="submit">Toevoegen <span aria-hidden="true">+</span></button>
+        </form>
+        <p id="word-status" class="word-status" aria-live="polite"></p>
+        <ul id="word-list" class="word-list" aria-label="Woorden in het raam"></ul>
+        <a class="display-link" href="/window.html" target="_blank" rel="noopener">
+          Open het raam in een apart venster <span aria-hidden="true">↗</span>
+        </a>
+      </section>
+    </main>
+    <script type="module" src="/src/counter.ts"></script>
+  </body>
+</html>

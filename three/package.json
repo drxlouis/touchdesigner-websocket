@@ -1,0 +1,25 @@
+{
+  "name": "three",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run build:mapper && bun run server.ts",
+    "start": "bun run build:mapper && bun run server.ts",
+    "build": "bun run build:mapper && tsc && vite build",
+    "build:mapper": "bun run --cwd ./node_modules/three-projection-mapper build:lib",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@tweakpane/core": "^2.0.5",
+    "@types/three": "^0.186.0",
+    "typescript": "~5.7.2",
+    "vite": "^6.2.0",
+    "vite-plugin-dts": "^4.5.4",
+    "vite-plugin-glsl": "^1.5.4"
+  },
+  "dependencies": {
+    "three": "^0.186.1",
+    "three-projection-mapper": "github:bhoffmann93/three-projection-mapper"
+  }
+}
